@@ -3,101 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Online Certifications</title>
+  <title>Daily Motivation Generator</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    header {
-      background: #007BFF;
-      color: white;
-      padding: 20px 0;
+    .container {
       text-align: center;
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 80%;
+      max-width: 500px;
     }
 
     h1 {
-      margin: 0;
+      margin-bottom: 20px;
+      color: #333;
     }
 
-    .certification-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 30px;
-    }
-
-    .certification {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      width: 300px;
-      margin: 15px;
+    #quote-box {
+      background-color: #f9f9f9;
       padding: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .certification h3 {
-      margin-top: 0;
-    }
-
-    .certification p {
+      margin-bottom: 25px;
+      border-radius: 10px;
+      font-size: 18px;
       color: #555;
+      transition: all 0.4s ease;
+      min-height: 80px;
     }
 
-    .btn {
-      background: #28a745;
+    button {
+      background-color: #4a90e2;
       color: white;
-      padding: 10px 15px;
       border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 10px;
+      padding: 15px 25px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
-    .btn:hover {
-      background: #218838;
+    button:hover {
+      background-color: #357ABD;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>🌐 Online Certifications</h1>
-    <p>Enroll in top certifications and boost your skills!</p>
-  </header>
-
-  <div class="certification-list">
-
-    <div class="certification">
-      <h3>Web Development</h3>
-      <p>Learn HTML, CSS, JavaScript, and build responsive websites.</p>
-      <a href="#" class="btn">Enroll Now</a>
+  <div class="container">
+    <h1>🌟 Daily Motivation 🌟</h1>
+    <div id="quote-box">
+      <p id="quote">Click the button to get a dose of motivation!</p>
     </div>
-
-    <div class="certification">
-      <h3>Python Programming</h3>
-      <p>Master Python fundamentals and build real-world projects.</p>
-      <a href="#" class="btn">Enroll Now</a>
-    </div>
-
-    <div class="certification">
-      <h3>Data Science</h3>
-      <p>Analyze data, build models, and visualize insights.</p>
-      <a href="#" class="btn">Enroll Now</a>
-    </div>
-
-    <div class="certification">
-      <h3>Cybersecurity Basics</h3>
-      <p>Understand the core concepts of cybersecurity and protection techniques.</p>
-      <a href="#" class="btn">Enroll Now</a>
-    </div>
-
+    <button onclick="generateQuote()">Inspire Me ✨</button>
   </div>
+
+  <script>
+    const quotes = [
+      "Believe you can and you're halfway there. – Theodore Roosevelt",
+      "The only way to do great work is to love what you do. – Steve Jobs",
+      "You are never too old to set another goal or to dream a new dream. – C.S. Lewis",
+      "Don't watch the clock; do what it does. Keep going. – Sam Levenson",
+      "Success is not the key to happiness. Happiness is the key to success. – Albert Schweitzer",
+      "Push yourself, because no one else is going to do it for you.",
+      "Great things never come from comfort zones.",
+      "Dream it. Wish it. Do it.",
+      "Stay positive, work hard, make it happen.",
+      "Doubt kills more dreams than failure ever will."
+    ];
+
+    function generateQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const quoteBox = document.getElementById('quote');
+      quoteBox.style.opacity = 0;
+
+      setTimeout(() => {
+        quoteBox.textContent = quotes[randomIndex];
+        quoteBox.style.opacity = 1;
+      }, 300);
+    }
+  </script>
 
 </body>
 </html>
